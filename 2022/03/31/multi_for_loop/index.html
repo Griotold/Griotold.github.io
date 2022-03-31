@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>이중 for문 - hshshshshs</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="hshshshshs"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="hshshshshs"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="쉬운 예제 : 구구단표for문으로 2단 만들기"><meta property="og:type" content="blog"><meta property="og:title" content="이중 for문"><meta property="og:url" content="http://griotold.github.io/2022/03/31/multi_for_loop/"><meta property="og:site_name" content="hshshshshs"><meta property="og:description" content="쉬운 예제 : 구구단표for문으로 2단 만들기"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://griotold.github.io/img/og_image.png"><meta property="article:published_time" content="2022-03-31T00:00:00.000Z"><meta property="article:modified_time" content="2022-03-31T12:42:07.003Z"><meta property="article:author" content="HS"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://griotold.github.io/2022/03/31/multi_for_loop/"},"headline":"이중 for문","image":["http://griotold.github.io/img/og_image.png"],"datePublished":"2022-03-31T00:00:00.000Z","dateModified":"2022-03-31T12:42:07.003Z","author":{"@type":"Person","name":"HS"},"publisher":{"@type":"Organization","name":"hshshshshs","logo":{"@type":"ImageObject","url":"http://griotold.github.io/img/logo.svg"}},"description":"쉬운 예제 : 구구단표for문으로 2단 만들기"}</script><link rel="canonical" href="http://griotold.github.io/2022/03/31/multi_for_loop/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="hshshshshs" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-03-31T00:00:00.000Z" title="2022. 3. 31. 오전 9:00:00">2022-03-31</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-03-31T12:42:07.003Z" title="2022. 3. 31. 오후 9:42:07">2022-03-31</time></span><span class="level-item"> HS </span><span class="level-item"><a class="link-muted" href="/categories/Python/">Python</a></span><span class="level-item">3 minutes read (About 435 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">이중 for문</h1><div class="content"><h2 id="쉬운-예제-구구단표"><a href="#쉬운-예제-구구단표" class="headerlink" title="쉬운 예제 : 구구단표"></a>쉬운 예제 : 구구단표</h2><h3 id="for문으로-2단-만들기"><a href="#for문으로-2단-만들기" class="headerlink" title="for문으로 2단 만들기"></a>for문으로 2단 만들기</h3><span id="more"></span>
+<p>출처 : [ Python 기초 ] 반복문1 (for문, 이중 for문)</p>
+<p><a target="_blank" rel="noopener" href="https://velog.io/@hj5730/Python-%EA%B8%B0%EC%B4%88-%EB%B0%98%EB%B3%B5%EB%AC%B81-for%EB%AC%B8-%EC%9D%B4%EC%A4%91-for%EB%AC%B8">https://velog.io/@hj5730/Python-%EA%B8%B0%EC%B4%88-%EB%B0%98%EB%B3%B5%EB%AC%B81-for%EB%AC%B8-%EC%9D%B4%EC%A4%91-for%EB%AC%B8</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> b <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">10</span>):</span><br><span class="line">  c = a * b</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;%d X %d = %d&#x27;</span> % (a, b, c))</span><br></pre></td></tr></table></figure>
+
+<pre><code>2 X 1 = 2
+2 X 2 = 4
+2 X 3 = 6
+2 X 4 = 8
+2 X 5 = 10
+2 X 6 = 12
+2 X 7 = 14
+2 X 8 = 16
+2 X 9 = 18
+</code></pre>
+<h3 id="이중-for문으로-전체-구구단표-만들기"><a href="#이중-for문으로-전체-구구단표-만들기" class="headerlink" title="이중 for문으로 전체 구구단표 만들기"></a>이중 for문으로 전체 구구단표 만들기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;-&#x27;</span> * <span class="number">50</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="number">10</span>):</span><br><span class="line">  <span class="keyword">for</span> b <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">10</span>):</span><br><span class="line">    c = a * b</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;%d x %d = %d&#x27;</span> % (a, b, c))</span><br><span class="line"></span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;-&#x27;</span> * <span class="number">50</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>--------------------------------------------------
+2 x 1 = 2
+2 x 2 = 4
+2 x 3 = 6
+2 x 4 = 8
+2 x 5 = 10
+2 x 6 = 12
+2 x 7 = 14
+2 x 8 = 16
+2 x 9 = 18
+--------------------------------------------------
+3 x 1 = 3
+3 x 2 = 6
+3 x 3 = 9
+3 x 4 = 12
+3 x 5 = 15
+3 x 6 = 18
+3 x 7 = 21
+3 x 8 = 24
+3 x 9 = 27
+--------------------------------------------------
+4 x 1 = 4
+4 x 2 = 8
+4 x 3 = 12
+4 x 4 = 16
+4 x 5 = 20
+4 x 6 = 24
+4 x 7 = 28
+4 x 8 = 32
+4 x 9 = 36
+--------------------------------------------------
+5 x 1 = 5
+5 x 2 = 10
+5 x 3 = 15
+5 x 4 = 20
+5 x 5 = 25
+5 x 6 = 30
+5 x 7 = 35
+5 x 8 = 40
+5 x 9 = 45
+--------------------------------------------------
+6 x 1 = 6
+6 x 2 = 12
+6 x 3 = 18
+6 x 4 = 24
+6 x 5 = 30
+6 x 6 = 36
+6 x 7 = 42
+6 x 8 = 48
+6 x 9 = 54
+--------------------------------------------------
+7 x 1 = 7
+7 x 2 = 14
+7 x 3 = 21
+7 x 4 = 28
+7 x 5 = 35
+7 x 6 = 42
+7 x 7 = 49
+7 x 8 = 56
+7 x 9 = 63
+--------------------------------------------------
+8 x 1 = 8
+8 x 2 = 16
+8 x 3 = 24
+8 x 4 = 32
+8 x 5 = 40
+8 x 6 = 48
+8 x 7 = 56
+8 x 8 = 64
+8 x 9 = 72
+--------------------------------------------------
+9 x 1 = 9
+9 x 2 = 18
+9 x 3 = 27
+9 x 4 = 36
+9 x 5 = 45
+9 x 6 = 54
+9 x 7 = 63
+9 x 8 = 72
+9 x 9 = 81
+--------------------------------------------------
+</code></pre>
+<h2 id="다른-예제"><a href="#다른-예제" class="headerlink" title="다른 예제"></a>다른 예제</h2><p><a target="_blank" rel="noopener" href="https://wikidocs.net/104141">https://wikidocs.net/104141</a></p>
+<ul>
+<li>end&#x3D;” “ -&gt; 한줄로 표현해주기 위한 것이다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">  <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>):</span><br><span class="line">    <span class="built_in">print</span>(j, end=<span class="string">&quot; &quot;</span>)</span><br><span class="line">  <span class="built_in">print</span>()</span><br></pre></td></tr></table></figure>
+
+<pre><code>1 2 3 4 5 6 7 8 9 10 
+1 2 3 4 5 6 7 8 9 10 
+1 2 3 4 5 6 7 8 9 10 
+1 2 3 4 5 6 7 8 9 10 
+1 2 3 4 5 6 7 8 9 10 
+1 2 3 4 5 6 7 8 9 10 
+1 2 3 4 5 6 7 8 9 10 
+1 2 3 4 5 6 7 8 9 10 
+1 2 3 4 5 6 7 8 9 10 
+1 2 3 4 5 6 7 8 9 10 
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">  <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>):</span><br><span class="line">    <span class="built_in">print</span>(j, end=<span class="string">&quot; &quot;</span>)</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;-&gt;&gt;&gt;&gt;&quot;</span>, i)</span><br></pre></td></tr></table></figure>
+
+<pre><code>1 2 3 4 5 6 7 8 9 10 -&gt;&gt;&gt;&gt; 0
+1 2 3 4 5 6 7 8 9 10 -&gt;&gt;&gt;&gt; 1
+1 2 3 4 5 6 7 8 9 10 -&gt;&gt;&gt;&gt; 2
+1 2 3 4 5 6 7 8 9 10 -&gt;&gt;&gt;&gt; 3
+1 2 3 4 5 6 7 8 9 10 -&gt;&gt;&gt;&gt; 4
+1 2 3 4 5 6 7 8 9 10 -&gt;&gt;&gt;&gt; 5
+1 2 3 4 5 6 7 8 9 10 -&gt;&gt;&gt;&gt; 6
+1 2 3 4 5 6 7 8 9 10 -&gt;&gt;&gt;&gt; 7
+1 2 3 4 5 6 7 8 9 10 -&gt;&gt;&gt;&gt; 8
+1 2 3 4 5 6 7 8 9 10 -&gt;&gt;&gt;&gt; 9
+</code></pre>
+<h2 id="공포의-별찍기-문제"><a href="#공포의-별찍기-문제" class="headerlink" title="공포의 별찍기 문제"></a>공포의 별찍기 문제</h2><ul>
+<li>단서</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>):</span><br><span class="line">  <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, i+<span class="number">1</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;*&#x27;</span>, end=<span class="string">&quot;&quot;</span>)</span><br><span class="line">  <span class="built_in">print</span>()</span><br></pre></td></tr></table></figure>
+
+<pre><code>*
+**
+***
+****
+*****
+******
+*******
+********
+*********
+**********
+</code></pre>
+<h3 id="실습1"><a href="#실습1" class="headerlink" title="실습1"></a>실습1</h3><ul>
+<li>위의 별을 좌우반전으로 찍어보자.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">  <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, i+<span class="number">1</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot; &quot;</span> * i + <span class="string">&#x27;*&#x27;</span>, end=<span class="string">&quot;&quot;</span>)</span><br><span class="line">  <span class="built_in">print</span>()</span><br></pre></td></tr></table></figure>
+
+<pre><code> *
+  *  *
+   *   *   *
+    *    *    *    *
+     *     *     *     *     *
+      *      *      *      *      *      *
+       *       *       *       *       *       *       *
+        *        *        *        *        *        *        *        *
+         *         *         *         *         *         *         *         *         *
+</code></pre>
+<ul>
+<li>원하는 답이 아니다..</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">  <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, i+<span class="number">1</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot; &quot;</span> * (<span class="number">10</span>-i) + <span class="string">&#x27;*&#x27;</span>, end=<span class="string">&quot;&quot;</span>)</span><br><span class="line">  <span class="built_in">print</span>()</span><br></pre></td></tr></table></figure>
+
+<pre><code>         *
+        *        *
+       *       *       *
+      *      *      *      *
+     *     *     *     *     *
+    *    *    *    *    *    *
+   *   *   *   *   *   *   *
+  *  *  *  *  *  *  *  *
+ * * * * * * * * *
+</code></pre>
+<ul>
+<li>막 이상하게 나온다..</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">  <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, i+<span class="number">1</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot; &quot;</span> * (<span class="number">9</span>-i) + <span class="string">&#x27;*&#x27;</span>, end=<span class="string">&quot;&quot;</span>)</span><br><span class="line">  <span class="built_in">print</span>()</span><br></pre></td></tr></table></figure>
+
+<pre><code>        *
+       *       *
+      *      *      *
+     *     *     *     *
+    *    *    *    *    *
+   *   *   *   *   *   *
+  *  *  *  *  *  *  *
+ * * * * * * * *
+*********
+</code></pre>
+<h2 id="강의"><a href="#강의" class="headerlink" title="강의"></a>강의</h2><ul>
+<li>바로 for문부터 들어가지 마라</li>
+<li>한 줄씩 쳐보고 패턴을 파악해라</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot; &quot;</span> * <span class="number">9</span>, <span class="string">&quot;*&quot;</span> * <span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot; &quot;</span> * <span class="number">8</span>, <span class="string">&quot;*&quot;</span> * <span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot; &quot;</span> * <span class="number">7</span>, <span class="string">&quot;*&quot;</span> * <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>          *
+         **
+        ***
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">  <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, i+<span class="number">1</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot; &quot;</span> * (<span class="number">9</span>-i) + <span class="string">&quot;*&quot;</span> * j, end=<span class="string">&quot;&quot;</span>)</span><br><span class="line">  <span class="built_in">print</span>()</span><br></pre></td></tr></table></figure>
+
+<pre><code>        *
+       *       **
+      *      **      ***
+     *     **     ***     ****
+    *    **    ***    ****    *****
+   *   **   ***   ****   *****   ******
+  *  **  ***  ****  *****  ******  *******
+ * ** *** **** ***** ****** ******* ********
+*********************************************
+</code></pre>
+<ul>
+<li>이상해졌는데?</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">  <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, i+<span class="number">1</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot; &quot;</span> * (<span class="number">10</span>-j), <span class="string">&quot;*&quot;</span> * j)</span><br><span class="line">  <span class="built_in">print</span>()</span><br></pre></td></tr></table></figure>
+
+<pre><code>          *
+
+          *
+         **
+
+          *
+         **
+        ***
+
+          *
+         **
+        ***
+       ****
+
+          *
+         **
+        ***
+       ****
+      *****
+
+          *
+         **
+        ***
+       ****
+      *****
+     ******
+
+          *
+         **
+        ***
+       ****
+      *****
+     ******
+    *******
+
+          *
+         **
+        ***
+       ****
+      *****
+     ******
+    *******
+   ********
+
+          *
+         **
+        ***
+       ****
+      *****
+     ******
+    *******
+   ********
+  *********
+</code></pre>
+<ul>
+<li>어? 다왔는데?</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>):</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot; &quot;</span> * (<span class="number">10</span>-j), <span class="string">&quot;*&quot;</span> * j)</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+<pre><code>          *
+         **
+        ***
+       ****
+      *****
+     ******
+    *******
+   ********
+  *********
+ **********
+</code></pre>
+<p>와 결국해냈당. 6번 시도후 완성했다.</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>이중 for문</p><p><a href="http://griotold.github.io/2022/03/31/multi_for_loop/">http://griotold.github.io/2022/03/31/multi_for_loop/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>HS</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2022-03-31</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2022-03-31</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="notification is-danger">You need to set <code>install_url</code> to use ShareThis. Please set it in <code>_config.yml</code>.</div></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">Like this article? Support the author with</h3><div class="buttons is-centered"><a class="button donate" href="/" target="_blank" rel="noopener" data-type="afdian"><span class="icon is-small"><i class="fas fa-charging-station"></i></span><span>Afdian.net</span></a><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>Alipay</span><span class="qrcode"><img src="/" alt="Alipay"></span></a><a class="button donate" href="/" target="_blank" rel="noopener" data-type="buymeacoffee"><span class="icon is-small"><i class="fas fa-coffee"></i></span><span>Buy me a coffee</span></a><a class="button donate" href="/" target="_blank" rel="noopener" data-type="patreon"><span class="icon is-small"><i class="fab fa-patreon"></i></span><span>Patreon</span></a><div class="notification is-danger">You forgot to set the <code>business</code> or <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.</div><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>Wechat</span><span class="qrcode"><img src="/" alt="Wechat"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2022/03/30/ch_3_1/"><span class="level-item">혼자서 공부하는 머신러닝 + 딥러닝 ch3_1 </span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div class="notification is-danger">You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.</div></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Your name"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Your name</p><p class="is-size-6 is-block">Your title</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Your location</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">18</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Category</p><a href="/categories"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-03-31T00:00:00.000Z">2022-03-31</time></p><p class="title"><a href="/2022/03/31/multi_for_loop/">이중 for문</a></p><p class="categories"><a href="/categories/Python/">Python</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-03-30T00:00:00.000Z">2022-03-30</time></p><p class="title"><a href="/2022/03/30/ch_3_1/">혼자서 공부하는 머신러닝 + 딥러닝 ch3_1 </a></p><p class="categories"><a href="/categories/Python/">Python</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-03-29T00:00:00.000Z">2022-03-29</time></p><p class="title"><a href="/2022/03/29/ch_2_1/">혼자서 공부하는 머신러닝 + 딥러닝 ch2_1 </a></p><p class="categories"><a href="/categories/Python/">Python</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-03-28T00:00:00.000Z">2022-03-28</time></p><p class="title"><a href="/2022/03/28/ch1_3/">혼자서 공부하는 머신러닝 + 딥러닝_ch1_3 </a></p><p class="categories"><a href="/categories/Python/">Python</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-03-27T00:00:00.000Z">2022-03-27</time></p><p class="title"><a href="/2022/03/27/pandas_tutorial_02/">Pandas 입문 2 </a></p><p class="categories"><a href="/categories/Python/">Python</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/03/"><span class="level-start"><span class="level-item">March 2022</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="hshshshshs" height="28"></a><p class="is-size-7"><span>&copy; 2022 HS</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
